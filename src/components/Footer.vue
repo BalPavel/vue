@@ -1,14 +1,14 @@
 <template>
   <div class="footer">
     Разработал Павел Баль, студент ГГУ <br>
-    <a href="https://github.com/BalPavel">GitHub</a>
-    Email: pbal00@mail.ru <br>
+    <a href="https://github.com/BalPoi">GitHub</a>
+    Email: balpoi000@gmail.com <br>
   </div>
 </template>
 
 <script>
 export default {
-  
+
 }
 </script>
 
