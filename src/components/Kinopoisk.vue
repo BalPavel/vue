@@ -53,9 +53,9 @@ export default {
       // FIXME:Не работает отображение лоудера, но при ручной перестановке true/false в браузере всё работатет.
       // Думаю, проблема в этой функции
       if (this.searchRequest.trim()) {
-        this.isLoading = true;
         this.showResults = true;
-        console.log(this.isLoading, this.showResults);
+        this.isLoading = true;
+
         let url =
           `https://api.kinopoisk.dev/movie?` +
           `search=${encodeURI(this.searchRequest)}` +
@@ -63,12 +63,12 @@ export default {
           `&isStrict=false` +
           `&token=${this.token}`;
         console.log(url);
-        // Axios.get(url).then((result) => {
-        //   this.searchResults = result.data.docs;
-        // });
-        // console.log(this.isLoading, this.showResults);
+        Axios.get(url).then((result) => {
+          this.searchResults = result.data.docs;
+        });
+
         this.isLoading = false;
-        // console.log(this.isLoading, this.showResults);
+
       } else {
         this.searchRequest = "";
       }
@@ -76,9 +76,8 @@ export default {
   },
   watch: {
     searchRequest() {
-      // if (!this.searchRequest.trim()) {
       this.showResults = false;
-      // }
+      this.searchResults = undefined;
     },
   },
   created() {
